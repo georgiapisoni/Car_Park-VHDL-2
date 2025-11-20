@@ -1,0 +1,10 @@
+#macOS files
+.DS_Store
+
+.vscode
+
+/dist
+/build
+*.log
+
+/Requirements
