@@ -25,7 +25,7 @@ architecture Behavioural of Gate_Out is
     signal current_state, next_state: state_types;
     
 begin
-    -- Sequential process for state register
+    -- ------state register - sequential process
     state_register: process(clk, nrst)
     begin   
         if nrst = '0' then
@@ -35,7 +35,7 @@ begin
         end if;
     end process;
 
-    -- State transition process
+    -- ------state transition process
     state_transition: process(current_state, sensor_A, sensor_B, payment_done, can_exit)
     begin
         next_state <= current_state;
@@ -81,7 +81,6 @@ begin
         
         case current_state is
             when IDLE =>
-                -- No outputs active
                 null;
                 
             when WAIT_PAYMENT =>
@@ -98,7 +97,7 @@ begin
                 barrier <= '1';
                 payment_accepted <= '1';
                 
-                -- Set dec_car when we transition out of this state
+                -- Set decrement car count when transitioned out of state
                 if sensor_B = '0' then
                     dec_car <= '1';
                 end if;

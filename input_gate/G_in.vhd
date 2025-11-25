@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
+-------when is can enter set? and incoming car? functions?
 entity Gate_In is 
     generic (
         PARKING_CAPACITY : integer := 7
@@ -20,11 +21,12 @@ entity Gate_In is
 end Gate_In;
 
 architecture Behavioural of Gate_In is
-    type state_types is (IDLE, CAR_DETECTED, CAR_ENTERING, CAR_ENTERED, FULL);
+    type state_types is (IDLE, CAR_DETECTED, CAR_ENTERING, 
+                        CAR_ENTERED, FULL);
     signal current_state, next_state: state_types;
     
 begin
-    -- Sequential process for state register
+    -- ------state register - sequential process
     state_register: process(clk, nrst)
     begin   
         if nrst = '0' then
@@ -47,6 +49,8 @@ begin
                     else
                         next_state <= FULL;
                     end if;
+                else
+                    next_state <= IDLE;
                 end if;
                 
             when CAR_DETECTED =>
@@ -66,12 +70,14 @@ begin
             when CAR_ENTERED =>
                 if sensor_B = '0' then
                     next_state <= IDLE;
+                else 
+                    next_state <= CAR_ENTERED;
                 end if;
                 
             when FULL =>
                 if sensor_A = '0' then
                     next_state <= IDLE;
-                elsif can_enter = '1' then
+                elsif can_enter = '1' then         
                     next_state <= CAR_DETECTED;
                 end if;
         end case;
