@@ -2,7 +2,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 
--------when is can enter set? and incoming car? functions?
 entity Gate_In is 
     generic (
         PARKING_CAPACITY : integer := 7
