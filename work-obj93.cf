@@ -1,0 +1,13 @@
+v 4
+file . "test.vhd" "0657c2c456ec1b1b8675c07308cb27f1ab1865f3" "20251120185721.764":
+  entity parking_controller_tb at 1( 0) + 0 on 69;
+  architecture behavioral of parking_controller_tb at 8( 137) + 0 on 70;
+file . "G_out.vhd" "d5dd8cb083706dc0c99569cc000be56d09c58719" "20251120185049.926":
+  entity gate_out at 1( 0) + 0 on 61;
+  architecture behavioural of gate_out at 23( 875) + 0 on 62;
+file . "Car-Controller.vhd" "243909fb78fbe19dfa450e633b91ed2e8d11a967" "20251120185046.478":
+  entity parking_controller at 1( 0) + 0 on 59;
+  architecture behavioural of parking_controller at 48( 1327) + 0 on 60;
+file . "G_in.vhd" "cb96522d2bbb5f542e858ced1e5f22b4b6e6e4b0" "20251120185052.505":
+  entity gate_in at 1( 0) + 0 on 63;
+  architecture behavioural of gate_in at 22( 809) + 0 on 64;
